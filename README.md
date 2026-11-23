@@ -100,3 +100,7 @@ src-tauri      Tauri 2 + rusqlite: one transaction per diff, WAL, synchronous FU
 Because records are immutable, undo is a pointer swap and a save is a diff of two snapshots. A card move writes a few rows, not the board. The browser build swaps SQLite for localStorage behind the same two calls, which is how the screenshots above were made.
 
 The look is called Highlighter: white paper, black ink, cards in the colors of highlighter pens, and a magenta ring on the selection. One typeface ([Google Sans Flex](https://fonts.google.com/specimen/Google+Sans+Flex)) at one weight. Motion uses one curve and three durations (120, 220 and 320 ms) and turns off when macOS asks for reduced motion.
+
+## License
+
+[MIT](LICENSE)
