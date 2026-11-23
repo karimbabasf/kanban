@@ -1,0 +1,44 @@
+<!doctype html><html><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1440px;height:900px;overflow:hidden}
+body{font-family:Geist,"Helvetica Neue",sans-serif;background:#ececee;color:#38383d;font-optical-sizing:auto}
+.b{background:rgba(110,110,120,.13);border-radius:16px;padding:18px 20px;position:relative;overflow:hidden}
+.b.dk{background:rgba(110,110,120,.24)}
+h3{font-size:26px;font-weight:600;letter-spacing:-.01em;line-height:1.1}
+p{font-size:22px;opacity:.6;margin-top:6px;line-height:1.25}
+.bar{height:12px;border-radius:6px;background:rgba(110,110,120,.2);margin-top:12px}
+.w60{width:60%}.w40{width:40%}.w80{width:80%}
+.card{border-radius:10px;background:rgba(110,110,120,.14);padding:14px 14px 12px;margin-top:10px}
+.card .bar{margin-top:0;height:11px}.card .bar+.bar{margin-top:9px}
+.card.sel{background:rgba(110,110,120,.32)}
+.tl{display:flex;gap:9px}.tl i{width:13px;height:13px;border-radius:50%;background:rgba(110,110,120,.35)}
+.row{display:flex;align-items:center;gap:14px}
+.col{display:flex;flex-direction:column;gap:0;min-width:0}
+</style></head><body>
+<div style="position:absolute;inset:0;display:grid;grid-template-rows:64px 1fr;gap:10px;padding:10px">
+  <div class="row" style="padding-left:12px;gap:24px">
+    <div class="tl"><i></i><i></i><i></i></div>
+    <div class="b dk" style="padding:10px 22px"><h3 style="font-size:24px">Builds</h3></div>
+    <div class="b" style="padding:10px 22px"><h3 style="font-size:24px">Study</h3></div>
+    <div class="b" style="padding:10px 22px"><h3 style="font-size:24px">Life</h3></div>
+    <p style="margin:0">board tabs, Cmd 1 to 9</p>
+    <div class="b" style="margin-left:auto;padding:10px 22px;width:300px"><h3 style="font-size:24px">Search ( / )</h3></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 470px;gap:10px;min-height:0">
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;min-height:0">
+      <div class="b col"><h3>Backlog</h3><p>lane</p><div class="card"><div class="bar w80"></div><div class="bar w40"></div></div><div class="card"><div class="bar w60"></div></div><div class="card"><div class="bar w80"></div><div class="bar w60"></div></div><div class="card"><div class="bar w40"></div></div><div class="card"><div class="bar w60"></div></div><div class="card"><div class="bar w80"></div></div></div>
+      <div class="b col"><h3>Next</h3><p>lane</p><div class="card"><div class="bar w60"></div><div class="bar w40"></div></div><div class="card"><div class="bar w80"></div></div><div class="card"><div class="bar w40"></div></div></div>
+      <div class="b col"><h3>Doing</h3><p>lane</p><div class="card sel"><div class="bar w80"></div><div class="bar w60"></div></div><div class="card"><div class="bar w60"></div></div></div>
+      <div class="b col"><h3>Done</h3><p>lane, more scroll right</p><div class="card"><div class="bar w60"></div></div><div class="card"><div class="bar w40"></div></div><div class="card"><div class="bar w80"></div></div></div>
+    </div>
+    <div class="b dk col">
+      <h3>Card panel</h3><p>slides in on Enter, Esc closes</p>
+      <div class="b" style="margin-top:22px"><h3 style="font-size:24px">Title</h3><div class="bar w80"></div></div>
+      <div class="b" style="margin-top:10px;flex:1"><h3 style="font-size:24px">Notes</h3><div class="bar w80"></div><div class="bar w60"></div><div class="bar w80"></div></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px"><div class="b"><h3 style="font-size:24px">Due</h3></div><div class="b"><h3 style="font-size:24px">Label</h3></div></div>
+    </div>
+  </div>
+</div>
+</body></html>

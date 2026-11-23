@@ -1,0 +1,68 @@
+{
+  "title": "Choose the visual world",
+  "question": "Three-pane layout is locked. Now the look: keep the roll, take an alternate, or re-roll.",
+  "options": [
+    {
+      "id": "soft-depth",
+      "kind": "assigned",
+      "kicker": "THE ROLL",
+      "label": "Soft depth",
+      "lineage": "a warm charcoal studio desk at night",
+      "thesis": "Warm charcoal surfaces stacked by depth, cards tinted by their label, one ember color only for what the keyboard is on.",
+      "palette": ["#1b1916", "#27231f", "#34302a", "#efe9e1", "#ff8a3d", "#8fb48a", "#7fa6c9"],
+      "materials": ["warm charcoal surface steps", "neutral soft depth shadows", "native Mac sidebar vibrancy"],
+      "viewport": "Translucent board sidebar, four charcoal lanes of label-tinted cards, the selected card lifted in ember, its notes open in the inspector.",
+      "risk": "Dark and soft can turn muddy if the surface steps are too close; contrast must be measured, not guessed.",
+      "raised": [
+        {"from": "notation-diagram-systems-orienteering-map", "raise": "Ember is reserved for the selected card and keyboard focus. Nothing else on screen uses it."},
+        {"from": "pop-culture-shelf-streaming-title-card-wall", "raise": "Focus is the organizing state: the selected card lifts one surface step and shows its first notes line."},
+        {"from": "brand-identity-canon-saville-catalog-sleeve", "raise": "Nothing labeled twice: counts are bare numerals, inspector fields carry no labels their content already says."},
+        {"from": "design-annual-s-plate-section", "raise": "The ground is never flat: the charcoal drifts warmer toward the lower right."},
+        {"from": "editorial-sequence-montage-botanical-folio-season", "raise": "Every card keeps one size grammar in every lane; Done changes one thing only."}
+      ],
+      "html": ".impeccable/mocks/decision/soft-depth.html"
+    },
+    {
+      "id": "keycap",
+      "kind": "pick",
+      "kicker": "IMPECCABLE’S PICK",
+      "label": "Keycap",
+      "lineage": "doubleshot keycap colorways from the custom keyboard scene",
+      "thesis": "The board wears a warm putty keycap colorway, and every shortcut shows as a sculpted key that presses down when you hit it.",
+      "palette": ["#e6e0d5", "#f4f0e8", "#bdb5a8", "#2b2824", "#c8432f", "#3d6fb0"],
+      "materials": ["putty and cream keycap plastic", "sculpted keys with a dished top", "one red Esc accent"],
+      "viewport": "Cream lanes on a putty desk, grey mod-key sidebar, key hints as real keycaps beside every action, the red key marking the selection.",
+      "risk": "The most familiar look in the builder scene; keycaps must stay hints, never become the cards themselves.",
+      "html": ".impeccable/mocks/decision/keycap.html"
+    },
+    {
+      "id": "specimen",
+      "kind": "challenger",
+      "catalogId": "variable-font-specimen",
+      "verdict": "competitive",
+      "label": "Specimen",
+      "lineage": "interactive variable font specimens",
+      "thesis": "Paper white and ink black, letterforms carry everything, and one density axis remaps the whole board live.",
+      "palette": ["#f6f5f1", "#ebe9e3", "#131313", "#6b6862", "#2f5bff"],
+      "materials": ["flat paper", "ink type at large scale contrast", "one foundry blue"],
+      "viewport": "Huge column counts set in the type, cards as pure type on paper steps, a density readout in the toolbar that reflows every lane.",
+      "case": "Fuses cleanly: Cmd plus and minus morph the board from dense to roomy, a real win at half-screen width. Loses narrowly on warmth.",
+      "risk": "Pure type and paper can read as a document, not an app, if the lanes lose their surface steps.",
+      "html": ".impeccable/mocks/decision/specimen.html"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "steer": true,
+  "canon": true,
+  "canonCard": {
+    "kind": "canon",
+    "label": "The category standard",
+    "thesis": "The dark grey project tool look with a violet accent, executed cleanly.",
+    "palette": ["#16161a", "#1f1f24", "#e6e6ea", "#7c6cf2"],
+    "materials": ["flat dark grey", "violet accent"],
+    "viewport": "The board the category always ships.",
+    "risk": "Indistinguishable from every other board app.",
+    "html": ".impeccable/mocks/decision/canon.html"
+  },
+  "buildPath": {"value": "code", "toggle": false}
+}

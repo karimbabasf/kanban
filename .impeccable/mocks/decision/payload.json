@@ -1,0 +1,37 @@
+{
+  "title": "Pick the board layout",
+  "question": "Three layouts for the kanban window, in grey blocks. Lock one; the visual design comes after.",
+  "options": [
+    {
+      "id": "command",
+      "kind": "assigned",
+      "kicker": "THE ROLL",
+      "label": "Command bar",
+      "thesis": "A command line in the titlebar does every action; the board sits under it.",
+      "viewport": "Titlebar command input (Cmd K), five full-height columns, card detail in a bottom drawer, key hints in a footer strip.",
+      "risk": "Typed commands are slower than single keys for small moves, so both must exist.",
+      "html": ".impeccable/mocks/decision/command.html"
+    },
+    {
+      "id": "three-pane",
+      "kind": "dealt",
+      "label": "Three-pane Mac",
+      "thesis": "Mail-style: boards and columns outline on the left, the board in the center, a fixed inspector on the right.",
+      "viewport": "Sidebar with boards and per-column counts, four columns in the center, inspector with the selected card's notes, due date and label.",
+      "risk": "At half-screen width the inspector eats the board, so it must collapse.",
+      "html": ".impeccable/mocks/decision/three-pane.html"
+    },
+    {
+      "id": "full-bleed",
+      "kind": "dealt",
+      "label": "Full-bleed lanes",
+      "thesis": "Columns own the whole window; boards are titlebar tabs; card detail slides in from the right only when open.",
+      "viewport": "Board tabs in the titlebar, five columns edge to edge, an open card panel on the right pushing the lanes left.",
+      "risk": "No permanent home for the board list or search results beyond the tabs.",
+      "html": ".impeccable/mocks/decision/full-bleed.html"
+    }
+  ],
+  "reroll": true,
+  "steer": true,
+  "buildPath": { "value": "code", "toggle": false }
+}
