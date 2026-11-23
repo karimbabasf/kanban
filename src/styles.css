@@ -1,32 +1,32 @@
 :root {
-  --paper: #f6f5f1;
-  --paper-down: #ebe9e3;
-  --paper-deep: #e0ddd5;
-  --paper-up: #fbfaf7;
-  --ink: #131313;
-  --ink-2: #45433e;
-  --muted: #5f5c56;
-  --blue: #2f5bff;
-  --blue-wash: #dfe6ff;
-  --red: #b42318;
+  --paper: #f4f4f4;
+  --paper-down: #e8e8e8;
+  --paper-deep: #d8d8d8;
+  --paper-up: #ffffff;
+  --ink: #000000;
+  --ink-2: #2e2e2e;
+  --muted: #4a4a4a;
+  --accent: #e0007a;
+  --accent-wash: #ffd3e9;
+  --red: #a3001e;
 
-  --stock-sun: #f6e7c2;
-  --stock-sky: #dde8f4;
-  --stock-sage: #e0ead6;
-  --stock-clay: #f4dccf;
-  --stock-lilac: #e7e0f3;
-  --ink-sun: #e0ab3f;
-  --ink-sky: #6b9ad1;
-  --ink-sage: #7ea969;
-  --ink-clay: #d5825d;
-  --ink-lilac: #9884cf;
-  --ink-hover: #2a2a2a;
-  --on-ink: rgba(246, 245, 241, 0.16);
-  --scrim: rgba(246, 245, 241, 0.62);
-  --shadow-knob: 0 1px 3px rgba(19, 19, 19, 0.25);
-  --shadow-lift: 0 18px 36px rgba(19, 19, 19, 0.16), 0 4px 10px rgba(19, 19, 19, 0.08);
-  --shadow-float: 0 20px 50px rgba(19, 19, 19, 0.18), 0 4px 12px rgba(19, 19, 19, 0.06);
-  --shadow-dialog: 0 30px 70px rgba(19, 19, 19, 0.2), 0 6px 16px rgba(19, 19, 19, 0.08);
+  --stock-sun: #ffe14a;
+  --stock-sky: #93d4ff;
+  --stock-sage: #a3eba1;
+  --stock-clay: #ffb68c;
+  --stock-lilac: #d4c0ff;
+  --ink-sun: #f5c400;
+  --ink-sky: #1e9df0;
+  --ink-sage: #2fbf55;
+  --ink-clay: #ff7a30;
+  --ink-lilac: #8f62ff;
+  --ink-hover: #262626;
+  --on-ink: rgba(244, 244, 244, 0.18);
+  --scrim: rgba(244, 244, 244, 0.62);
+  --shadow-knob: 0 1px 3px rgba(0, 0, 0, 0.25);
+  --shadow-lift: 0 18px 36px rgba(0, 0, 0, 0.16), 0 4px 10px rgba(0, 0, 0, 0.08);
+  --shadow-float: 0 20px 50px rgba(0, 0, 0, 0.18), 0 4px 12px rgba(0, 0, 0, 0.06);
+  --shadow-dialog: 0 30px 70px rgba(0, 0, 0, 0.2), 0 6px 16px rgba(0, 0, 0, 0.08);
 
   --side-w: 216px;
   --insp-w: 320px;
@@ -52,13 +52,13 @@
 html, body, #root { height: 100%; overflow: clip; }
 body { background: var(--paper); user-select: none; -webkit-user-select: none; cursor: default; }
 button { font: inherit; color: inherit; background: none; border: 0; cursor: default; }
-input, textarea { font: inherit; color: inherit; background: none; border: 0; outline: none; resize: none; caret-color: var(--blue); }
+input, textarea { font: inherit; color: inherit; background: none; border: 0; outline: none; resize: none; caret-color: var(--accent); }
 input, textarea, .insp { user-select: text; -webkit-user-select: text; }
-::selection { background: var(--blue-wash); color: var(--ink); }
+::selection { background: var(--accent-wash); color: var(--ink); }
 ::placeholder { color: var(--muted); opacity: 1; }
-:focus-visible { outline: 2px solid var(--blue); outline-offset: 2px; border-radius: 6px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 6px; }
 input:focus-visible, textarea:focus-visible { outline: none; }
-input[type="range"]:focus-visible { outline: 2px solid var(--blue); outline-offset: 4px; border-radius: 10px; }
+input[type="range"]:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 10px; }
 ::-webkit-scrollbar { width: 10px; height: 10px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--paper-deep); border-radius: 10px; border: 3px solid transparent; background-clip: padding-box; }
@@ -150,7 +150,7 @@ input.lane-name { background: var(--paper-up); border-radius: 8px; padding: 0 8p
 .card .due.late { color: var(--red); }
 .card, .add-card { box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 2px transparent; transition: box-shadow var(--quick) var(--ease), background-color var(--quick) var(--ease); }
 /* Selection: the ring draws outward from under the card in 120 ms, so it lands where the key went. */
-.card.sel, .add-card.sel { z-index: 1; box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 4px var(--blue); }
+.card.sel, .add-card.sel { z-index: 1; box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 4px var(--accent); }
 .card.lifted { transition: none; }
 .title-edit { display: block; width: 100%; line-height: 1.32; overflow: hidden; }
 .composer { background: var(--paper-up); }
@@ -162,7 +162,7 @@ input.lane-name { background: var(--paper-up); border-radius: 8px; padding: 0 8p
 
 .drag-layer { position: fixed; z-index: 30; pointer-events: none; }
 .card.lifted { box-shadow: var(--shadow-lift); }
-.composer { box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 4px var(--blue); }
+.composer { box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 4px var(--accent); }
 body.dragging, body.dragging * { cursor: grabbing !important; }
 
 .hints { display: flex; align-items: center; gap: 16px; padding: 0 20px; font-size: 12.5px; color: var(--muted); white-space: nowrap; overflow: hidden; }

@@ -15,7 +15,7 @@ interface Cmd {
   run: () => void;
 }
 
-const COLOR_NAMES: Record<string, string> = { sun: "yellow", sky: "blue", sage: "green", clay: "red", lilac: "purple" };
+const COLOR_NAMES: Record<string, string> = { sun: "yellow", sky: "blue", sage: "green", clay: "orange", lilac: "purple" };
 
 function commands(): Cmd[] {
   const { data } = store.state;
