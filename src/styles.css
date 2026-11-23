@@ -133,6 +133,10 @@ input[type="range"]::-webkit-slider-thumb { -webkit-appearance: none; width: 16p
 .btn.soft:hover { background: var(--paper-deep); }
 .btn:disabled { color: var(--muted); cursor: default; transform: none; }
 .btn.soft:disabled { background: var(--paper-down); opacity: 0.6; }
+.history { display: flex; gap: 2px; flex: none; }
+.history .btn:first-child { border-radius: 8px 4px 4px 8px; }
+.history .btn:last-child { border-radius: 4px 8px 8px 4px; }
+.btn.soft.redo { padding: 0 8px; }
 
 /* Board */
 .board { min-height: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(var(--lane-min), 1fr); gap: 12px; padding: 0 16px; overflow-x: auto; overflow-y: hidden; }

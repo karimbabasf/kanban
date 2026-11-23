@@ -1,5 +1,5 @@
 import { useMemo } from "react";
-import { Plus, Undo2 } from "lucide-react";
+import { Plus, Redo2, Undo2 } from "lucide-react";
 import { useStore, store } from "../model/store";
 import * as a from "../actions";
 import { fields } from "./fields";
@@ -12,6 +12,7 @@ export function Toolbar() {
   const search = useStore((s) => s.ui.search);
   const density = useStore((s) => s.ui.density);
   const canUndo = useStore(() => store.canUndo());
+  const canRedo = useStore(() => store.canRedo());
   const boardId = useMemo(() => a.currentBoardId(), [data, boardSel]);
   const board = boardId ? data.boards[boardId] : null;
   const size = Math.round((12.5 + 3 * density) * 10) / 10;
@@ -62,11 +63,16 @@ export function Toolbar() {
         />
         {!search && <Keys keys={["/"]} />}
       </div>
-      <button className="btn soft" onClick={a.undo} disabled={!canUndo} title="Undo (Cmd Z)" aria-label="Undo">
-        <Undo2 size={15} strokeWidth={2} aria-hidden />
-        <span className="label">Undo</span>
-        <Keys keys={["⌘", "Z"]} />
-      </button>
+      <div className="history">
+        <button className="btn soft" onClick={a.undo} disabled={!canUndo} title="Undo (Cmd Z)" aria-label="Undo">
+          <Undo2 size={15} strokeWidth={2} aria-hidden />
+          <span className="label">Undo</span>
+          <Keys keys={["⌘", "Z"]} />
+        </button>
+        <button className="btn soft redo" onClick={a.redo} disabled={!canRedo} title="Redo (Shift Cmd Z)" aria-label="Redo">
+          <Redo2 size={15} strokeWidth={2} aria-hidden />
+        </button>
+      </div>
       <button className="btn" onClick={() => a.startNewCard("bottom")}>
         <Plus size={15} strokeWidth={2} aria-hidden />
         New card
