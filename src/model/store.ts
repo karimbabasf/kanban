@@ -115,6 +115,7 @@ class Store {
     }
     this.future = [];
     this.state = { ...this.state, data: next, ui: ui ? { ...this.state.ui, ...ui } : this.state.ui };
+    if (ui) this.savePrefs(ui);
     this.emit();
   }
 
@@ -142,20 +143,24 @@ class Store {
 
   private restore(e: Entry) {
     this.state = { ...this.state, data: e.data, ui: { ...this.state.ui, ...e.sel, editing: null, drag: null } };
+    this.savePrefs(e.sel);
     this.emit();
   }
 
   setUi(patch: Partial<Ui>) {
     this.state = { ...this.state, ui: { ...this.state.ui, ...patch } };
-    if ("density" in patch || "sidebar" in patch || "inspector" in patch || "boardId" in patch) {
-      const { density, sidebar, inspector, boardId } = this.state.ui;
-      try {
-        localStorage.setItem(PREFS, JSON.stringify({ density, sidebar, inspector, boardId }));
-      } catch {
-        /* prefs are a convenience */
-      }
-    }
+    this.savePrefs(patch);
     this.emit();
+  }
+
+  private savePrefs(patch: Partial<Ui>) {
+    if (!("density" in patch || "sidebar" in patch || "inspector" in patch || "boardId" in patch)) return;
+    const { density, sidebar, inspector, boardId } = this.state.ui;
+    try {
+      localStorage.setItem(PREFS, JSON.stringify({ density, sidebar, inspector, boardId }));
+    } catch {
+      /* prefs are a convenience */
+    }
   }
 
   canUndo = () => this.past.length > 0;

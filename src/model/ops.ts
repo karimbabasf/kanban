@@ -138,7 +138,7 @@ export function moveCard(d: Data, id: Id, laneId: Id, index: number): Data {
   return { ...d, cards };
 }
 
-export function seed(now = Date.now()): Data {
+export function seed(now = Date.now(), touch = false): Data {
   const { data, id } = createBoard({ boards: {}, lanes: {}, cards: {} }, "Start here");
   const [todo, doing, done] = lanesOf(data, id);
   let d = data;
@@ -146,6 +146,15 @@ export function seed(now = Date.now()): Data {
     const r = createCard(d, laneId, title, undefined, now);
     d = updateCard(r.data, r.id, { notes, label }, now);
   };
+  if (touch) {
+    add(todo.id, "Type below to add a card", "Press return to add it. The field stays open, so you can add a whole list in one go.");
+    add(todo.id, "Swipe a card right to move it", "It goes to the bottom of the next lane.");
+    add(todo.id, "Swipe a card left to delete it", "Undo brings it back.", "clay");
+    add(todo.id, "Tap a card to open it", "Notes, a due date, a color and the lane all live here.", "sun");
+    add(doing.id, "Swipe the board sideways to change lanes", "Or tap a lane at the top.", "sky");
+    add(done.id, "Everything saves on this phone", "Nothing leaves the device. To keep it like an app, tap Share, then Add to Home Screen.", "sage");
+    return d;
+  }
   add(todo.id, "Press N to add a card", "Type a title and press Enter. The next empty card opens right away, so you can dump a list fast. Esc stops.");
   add(todo.id, "Shift + arrows move a card", "Shift + Left and Right jump lanes. Shift + Up and Down reorder. H J K L work in place of the arrows.");
   add(todo.id, "Press 1 to 5 to color a card", "0 clears the color.", "sun");

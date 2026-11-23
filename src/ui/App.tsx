@@ -10,6 +10,8 @@ import { HintBar } from "./HintBar";
 import { Palette } from "./Palette";
 import { Help } from "./Help";
 import { store } from "../model/store";
+import { PhoneApp } from "./Phone";
+import { PHONE_QUERY } from "./phoneQuery";
 
 // One curve everywhere; three durations: 0.12 feedback, 0.22 moves and dialogs, 0.32 panes.
 export const ease = [0.2, 0, 0, 1] as const;
@@ -21,9 +23,9 @@ const paneVariants = {
   open: (instant: boolean) => ({ width: "var(--w)", transition: instant ? snap : pane }),
 };
 
-type Mode = "wide" | "mid" | "narrow";
+type Mode = "phone" | "wide" | "mid" | "narrow";
 function useMode(): Mode {
-  const get = (): Mode => (innerWidth >= 1320 ? "wide" : innerWidth >= 900 ? "mid" : "narrow");
+  const get = (): Mode => (matchMedia(PHONE_QUERY).matches ? "phone" : innerWidth >= 1320 ? "wide" : innerWidth >= 900 ? "mid" : "narrow");
   const [m, setM] = useState(get);
   useEffect(() => {
     const on = () => setM(get());
@@ -55,6 +57,13 @@ export function App() {
   useEffect(() => store.setUi({ sheet: false, drawer: false }), [mode]);
 
   if (!ready) return <div className="app loading" />;
+  if (mode === "phone") {
+    return (
+      <MotionConfig reducedMotion="user" transition={base}>
+        <PhoneApp />
+      </MotionConfig>
+    );
+  }
   const side = mode !== "narrow" && sidebar;
   const insp = mode === "wide" && inspector;
   const style = { "--d": density } as React.CSSProperties;
