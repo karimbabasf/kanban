@@ -239,6 +239,7 @@ body.dragging, body.dragging * { cursor: grabbing !important; }
 .help dd { color: var(--ink-2); }
 
 /* The toolbar sheds its least needed parts as the window narrows. */
+@container (max-width: 900px) { .btn.soft .keys { display: none; } }
 @container (max-width: 790px) { .density .readout, .btn.soft .label, .btn.soft .keys { display: none; } .btn.soft { padding: 0 8px; } .hints > span:nth-child(n + 7):not(.save-error) { display: none; } }
 @container (max-width: 680px) { .density { display: none; } .hints > span:nth-child(n + 5):not(.save-error) { display: none; } }
 @container (max-width: 520px) { .search { width: 150px; } .btn kbd { display: none; } }
