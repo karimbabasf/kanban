@@ -8,6 +8,8 @@ web
 
 Shipped inside a Tauri 2 window on macOS. The UI is web, but Mac conventions bind: Cmd shortcuts, the traffic-light titlebar region, a native menu bar, no browser chrome.
 
+Since 2026-11-22 the same web build is also hosted on Vercel (karim-kanban.vercel.app) with a phone layout under 640 px wide, installable to the iPhone Home Screen and usable offline. On the phone, touch is the input: swipe a card right to move it, left to delete it, and type at the bottom to capture. Phone data lives in that browser's storage and does not sync with the Mac app.
+
 ## Stack
 
 Tauri 2 Mac app (Karim's choice, 2026-11-22). Delegated details: Vite + React + TypeScript frontend, Rust backend with rusqlite writing one SQLite file in the app data dir. A browser build with a localStorage adapter exists only for development and screenshots.

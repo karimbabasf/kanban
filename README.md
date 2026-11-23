@@ -55,6 +55,17 @@ Press `?` in the app for this list.
 | `⌘I` | Show or hide the inspector |
 | `Esc` | Close the sheet, clear the search |
 
+## On your iPhone
+
+Open [karim-kanban.vercel.app](https://karim-kanban.vercel.app) on a phone and the board becomes one lane at a time:
+
+- Swipe a card right to send it to the next lane, left to delete it. Undo is one tap away.
+- Swipe the board sideways, or tap a lane at the top, to change lanes.
+- Type in the field at the bottom to add a card. It stays open, so a list goes in fast.
+- Tap a card for its notes, due date, color and lane.
+
+In Safari, tap Share, then Add to Home Screen. It opens full screen like an app and works offline. The phone keeps its own board: nothing syncs with the Mac app.
+
 ## Run it
 
 You need macOS, Node 22 or later, and Rust (stable), plus the Xcode command line tools (`xcode-select --install`).
@@ -76,6 +87,8 @@ npm run tauri dev    # the Mac app with hot reload
 npm run dev          # browser build on localhost:1420, data in localStorage
 ```
 
+The web build deploys to Vercel with `vercel deploy --prod` (settings in `vercel.json`). The build writes `sw.js`, the offline cache, with this build's file list.
+
 Your data lives in one file: `~/Library/Application Support/com.karimbaba.kanban/kanban.db`. Quit the app and copy it to back up.
 
 ## Test
@@ -94,6 +107,7 @@ src/model      pure functions on immutable records: boards, lanes, cards
   diff.ts      compares two snapshots by object identity, emits only changed rows
   persist.ts   sends each diff to Rust; writes coalesce while one is in flight
 src/ui         React 19 + Motion: sidebar, board, inspector, palette
+  Phone.tsx    under 640 px: lane pager, swipe actions, capture bar, card sheet
 src-tauri      Tauri 2 + rusqlite: one transaction per diff, WAL, synchronous FULL
 ```
 
