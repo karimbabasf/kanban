@@ -80,7 +80,7 @@ kbd { display: inline-grid; place-items: center; min-width: 19px; height: 19px; 
   /* --d (0..1) is set inline from the density setting. */
   --fs-card: calc(12.5px + 3px * var(--d));
   --pad-card: calc(8px + 8px * var(--d));
-  --gap: calc(4px + 8px * var(--d));
+  --gap: calc(8px + 4px * var(--d));
   --lane-min: calc(200px + 48px * var(--d));
   --count: calc(28px + 16px * var(--d));
 
@@ -150,7 +150,7 @@ input.lane-name { background: var(--paper-up); border-radius: 8px; padding: 0 8p
 .card .due.late { color: var(--red); }
 .card, .add-card { box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 2px transparent; transition: box-shadow var(--quick) var(--ease), background-color var(--quick) var(--ease); }
 /* Selection: the ring draws outward from under the card in 120 ms, so it lands where the key went. */
-.card.sel, .add-card.sel { box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 4px var(--blue); }
+.card.sel, .add-card.sel { z-index: 1; box-shadow: 0 0 0 2px var(--paper-down), 0 0 0 4px var(--blue); }
 .card.lifted { transition: none; }
 .title-edit { display: block; width: 100%; line-height: 1.32; overflow: hidden; }
 .composer { background: var(--paper-up); }
